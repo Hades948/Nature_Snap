@@ -1,8 +1,0 @@
-A list of all animals to find in this build:
-
-- 2 Bears
-- 4 Deer
-- 2 Moose
-- 12 Squirrels
-- 4 Wolves
-- 4 Woodpeckers

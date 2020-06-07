@@ -1,65 +1,101 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using static System.Math;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Tilemaps;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
-    private const int EAST  = 0;
-    private const int NORTH = 1;
-    private const int WEST  = 2;
-    private const int SOUTH = 3;
-    private int direction = SOUTH;
+    public static int Direction;
 
     public float DEADZONE = 0.1f;
     public float moveSpeed;
-    public Vector2Int startTile;
 
     private Vector3 targetPosition;
-    private Tilemap path;
     private TileBase[] pathTiles;
     private Vector2Int currentTile;
-    private Vector2Int targetTile;
+    public static Vector2Int targetTile;
     private float initialMoveSpeed;
     private bool isWalking = false;
+    public bool MovementLocked = false;
 
     private Animator animator;
+    private Text locationInfo;
+    private Image minimapBlip;
 
     void Start() {
-        // Get path information.
-        path = GameObject.Find("Path").GetComponent<Tilemap>();
-        BoundsInt bounds = path.cellBounds;
-        pathTiles = path.GetTilesBlock(bounds);
-
-        // Set initial position values.
-        currentTile.x = targetTile.x = startTile.x;
-        currentTile.y = targetTile.y = startTile.y;
         initialMoveSpeed = moveSpeed;
 
         // Move player to start position.
-        transform.position = tileToAbsolute(startTile);
+        float startX = 0.0f;
+        float startY = 0.0f;
+
+        // TODO: UGLYYYYY
+        if(Game.playerTileXFromSaveData != -1 && (Game.previousScene == "Title" || Game.previousScene == "ENTRY" || Game.previousScene == "Gallery")) {
+            currentTile.x = targetTile.x = Game.playerTileXFromSaveData;
+            currentTile.y = targetTile.y = Game.playerTileYFromSaveData;
+            startX = Util.tileXToAbsoluteX(currentTile.x);
+            startY = Util.tileYToAbsoluteY(currentTile.y);
+            Direction = Directions.SOUTH;
+        } else if (SceneManager.GetActiveScene().name == "Forest" && (Game.previousScene == "Title" || Game.previousScene == "ENTRY" || Game.previousScene == "Gallery")) {
+            currentTile.x = targetTile.x = Globals.SceneEnteranceLocations.InitialSpawn.X;
+            currentTile.y = targetTile.y = Globals.SceneEnteranceLocations.InitialSpawn.Y;
+            startX = Util.tileXToAbsoluteX(currentTile.x);
+            startY = Util.tileYToAbsoluteY(currentTile.y);
+            Direction = Directions.SOUTH;
+        } else if (SceneManager.GetActiveScene().name == "Arctic" && (Game.previousScene == "Title" || Game.previousScene == "ENTRY" || Game.previousScene == "Gallery")) {// This shouldn't run on release.
+            currentTile.x = targetTile.x = Globals.SceneEnteranceLocations.ArcticFromForest.X;
+            currentTile.y = targetTile.y = Globals.SceneEnteranceLocations.ArcticFromForest.Y;
+            startX = Util.tileXToAbsoluteX(currentTile.x);
+            startY = Util.tileYToAbsoluteY(currentTile.y);
+            Direction = Directions.EAST;
+        } else if (SceneManager.GetActiveScene().name == "Arctic" && Game.previousScene == "Forest") {
+            currentTile.x = targetTile.x = Globals.SceneEnteranceLocations.ArcticFromForest.X;
+            currentTile.y = targetTile.y = Globals.SceneEnteranceLocations.ArcticFromForest.Y;
+            startX = Util.tileXToAbsoluteX(currentTile.x);
+            startY = Util.tileYToAbsoluteY(currentTile.y);
+            Direction = Directions.EAST;
+        } else if (SceneManager.GetActiveScene().name == "Forest" && Game.previousScene == "Arctic") {
+            currentTile.x = targetTile.x = Globals.SceneEnteranceLocations.ForestFromArctic.X;
+            currentTile.y = targetTile.y = Globals.SceneEnteranceLocations.ForestFromArctic.Y;
+            startX = Util.tileXToAbsoluteX(currentTile.x);
+            startY = Util.tileYToAbsoluteY(currentTile.y);
+            Direction = Directions.WEST;
+        }
+        transform.position = new Vector3(startX, startY, transform.position.z);
         targetPosition = transform.position;
 
         // Set up animator.
         animator = GetComponent<Animator>();
-        animator.SetInteger("direction", direction);
+        animator.SetInteger("direction", Direction);
+
+        // Set up UI.
+        locationInfo = GameObject.Find("Location Information").GetComponent<Text>();
+        minimapBlip = GameObject.Find("Minimap Blip").GetComponent<Image>();
     }
 
     void FixedUpdate() {
-        // TODO See if we can have a debug variable for this.
+        // Don't move if movement is locked.
+        if (MovementLocked)  {
+            animator.SetBool("isWalking", false);
+            return;
+        }
+
         // Debug speed boost.
-        if (Input.GetKey(KeyCode.LeftShift)) {
-            //moveSpeed = initialMoveSpeed * 10;
+        if (Globals.Debug.DO_DEBUG && Input.GetKey(KeyCode.LeftShift)) {
+            moveSpeed = initialMoveSpeed * 10;
         } else {
             moveSpeed = initialMoveSpeed;
         }
 
         // If we're standing in the center of the current tile, check for input and update the target position.
-        if (transform.position == targetPosition) {
+        if (Util.equateFloats(transform.position.x, targetPosition.x, 0.01f) && Util.equateFloats(transform.position.y, targetPosition.y, 0.01f)) {
             // Check if surrounding tiles are path tiles.
-            bool canMoveEast  = isPathTile(currentTile.x + 1, currentTile.y);
-            bool canMoveNorth = isPathTile(currentTile.x,     currentTile.y - 1);
-            bool canMoveWest  = isPathTile(currentTile.x - 1, currentTile.y);
-            bool canMoveSouth = isPathTile(currentTile.x,     currentTile.y + 1);
+            bool canMoveEast  = Util.isPathTile(currentTile.x + 1, currentTile.y);
+            bool canMoveNorth = Util.isPathTile(currentTile.x,     currentTile.y - 1);
+            bool canMoveWest  = Util.isPathTile(currentTile.x - 1, currentTile.y);
+            bool canMoveSouth = Util.isPathTile(currentTile.x,     currentTile.y + 1);
 
             // Get movement input.
             float horizontalAxis = Input.GetAxisRaw("Horizontal");
@@ -71,60 +107,64 @@ public class PlayerController : MonoBehaviour {
 
             if (canMoveEast && inputEast) {          // Walking East
                 isWalking = true;
-                direction = EAST;
+                Direction = Directions.EAST;
                 targetTile.x = ++currentTile.x;
                 targetTile.y = currentTile.y;
             } else if (canMoveNorth && inputNorth) { // Walking North
                 isWalking = true;
-                direction = NORTH;
+                Direction = Directions.NORTH;
                 targetTile.x = currentTile.x;
                 targetTile.y = --currentTile.y;
             } else if (canMoveWest && inputWest) {   // Walking West
                 isWalking = true;
-                direction = WEST;
+                Direction = Directions.WEST;
                 targetTile.x = --currentTile.x;
                 targetTile.y = currentTile.y;
             } else if (canMoveSouth && inputSouth) { // Walking South
                 isWalking = true;
-                direction = SOUTH;
+                Direction = Directions.SOUTH;
                 targetTile.x = currentTile.x;
                 targetTile.y = ++currentTile.y;
             } else {                                 // Idle
                 isWalking = false;
                 if (inputEast) {
-                    direction = EAST;
+                    Direction = Directions.EAST;
                 } else if (inputNorth) {
-                    direction = NORTH;
+                    Direction = Directions.NORTH;
                 } else if (inputWest) {
-                    direction = WEST;
+                    Direction = Directions.WEST;
                 } else if (inputSouth) {
-                    direction = SOUTH;
+                    Direction = Directions.SOUTH;
                 }
             }
         }
 
         // Move character towards target position.
-        targetPosition = tileToAbsolute(targetTile);
+        targetPosition = Util.tileToAbsolute(targetTile);
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
 
         // Update animation
-        animator.SetInteger("direction", direction);
+        animator.SetInteger("direction", Direction);
         animator.SetBool("isWalking", isWalking);
-    }
 
-    // Returns true if the path tilemap contains a tile at the given (tileX, tileY).
-    // Returns false otherwise.
-    private bool isPathTile(int tileX, int tileY) {
-        // Unity stores the Y-axis for the tilemap starting at the bottom, so we need to flip it here.
-        tileY = path.size.y - tileY - 1;
+        // Detect scene changes
+        // TODO: This will get messy.  See if it can be generalized.
+        if (SceneManager.GetActiveScene().name == "Forest"
+            && Util.equateFloats(transform.position.x, Util.tileXToAbsoluteX(Globals.SceneChangeLocations.ForestToArctic.X), 0.001f)
+            && Util.equateFloats(transform.position.y, Util.tileYToAbsoluteY(Globals.SceneChangeLocations.ForestToArctic.Y), 0.001f)) {
+             Game.switchScenes("Arctic");
+        } else if (SceneManager.GetActiveScene().name == "Arctic"
+                   && Util.equateFloats(transform.position.x, Util.tileXToAbsoluteX(Globals.SceneChangeLocations.ArcticToForest.X), 0.001f)
+                   && Util.equateFloats(transform.position.y, Util.tileYToAbsoluteY(Globals.SceneChangeLocations.ArcticToForest.Y), 0.001f)) {
+             Game.switchScenes("Forest");
+        }
 
-        return pathTiles[tileX + tileY * path.cellBounds.size.x] != null;
-    }
+        // Update UI
+        locationInfo.text = "Current Tile Location: (" + currentTile.x + ", " + currentTile.y + ")\n"
+                          + "Player Location: (" + transform.position.x + ", " + transform.position.y + ")\n";
 
-    // Returns a Vector3 representing the absolute-world-space location of the given tile.
-    private Vector3 tileToAbsolute(Vector2Int tile) {
-        float absoluteX = tile.x * path.cellSize.x + path.transform.position.x + path.cellSize.x / 2;
-        float absoluteY = -tile.y * path.cellSize.y + path.transform.position.y;
-        return new Vector3 (absoluteX, absoluteY, 0.0f);
+        // Update minimap
+        // TODO: Try not to hard-code these values.
+        minimapBlip.transform.localPosition = new Vector3(targetTile.x/2.0f - 47.75f, -targetTile.y/2.0f + 47.25f, 0.0f);
     }
 }

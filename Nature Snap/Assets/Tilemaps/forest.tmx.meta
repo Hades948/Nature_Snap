@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c583a218528250d4daee3dc95e457d02
+guid: 996b3c1d0e5162040beb45099c0833c1
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -10,12 +10,7 @@ ScriptedImporter:
   script: {fileID: 11500000, guid: 1fa25d03934ea624a82bf2fcee6f0873, type: 3}
   missingFiles: []
   errors: []
-  warnings:
-  - Pixels Per Unit mismatch between map (1) and tileset 'tilesets/grass.tsx' (100)
-  - Pixels Per Unit mismatch between map (1) and tileset 'tilesets/water.tsx' (100)
-  - Pixels Per Unit mismatch between map (1) and tileset 'tilesets/path.tsx' (100)
-  - Pixels Per Unit mismatch between map (1) and tileset 'tilesets/scenery.tsx' (100)
-  - Pixels Per Unit mismatch between map (1) and tileset 'tilesets/bridge.tsx' (100)
+  warnings: []
   missingSortingLayers: []
   missingLayers: []
   missingTags: []

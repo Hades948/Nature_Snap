@@ -5,7 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class SwitchSceneButtonController : MonoBehaviour {
     public string sceneName;
+    public bool saveGame;
+    public bool loadGame;
     public void OnButtonPress() {
-        SceneManager.LoadScene(sceneName);
+        if (saveGame) {
+            Game.saveGame();
+        }
+        if (loadGame) {
+            Game.loadGame();
+        }
+        Game.switchScenes(sceneName);
     }
 }

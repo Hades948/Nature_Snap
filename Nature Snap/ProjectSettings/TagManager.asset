@@ -53,6 +53,9 @@ TagManager:
   - name: Tilemap Foreground
     uniqueID: 3302208373
     locked: 0
+  - name: Animals Foreground
+    uniqueID: 2473203503
+    locked: 0
   - name: HUD
     uniqueID: 2608892401
     locked: 0

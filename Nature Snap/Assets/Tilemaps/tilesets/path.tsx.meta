@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2f5ae71ec22e0364fbd437fd22084a7e
+guid: 010ab0ac6e17c474daf79f1d4bdf0b8e
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -8,10 +8,11 @@ ScriptedImporter:
   assetBundleName: 
   assetBundleVariant: 
   script: {fileID: 11500000, guid: cc34d0f3dc257a442819830b408c5322, type: 3}
-  missingFiles:
-  - Assets/Tilemaps/tilesets/Images/path.png
+  missingFiles: []
   errors:
-  - 'Missing texture asset: Images/path.png'
+  - Mismatching width/height detected. Tileset = (128, 288), image = (128, 128).
+    This may happen when a tileset image has been resized. Open map and tileset in
+    Tiled Map Editor and resave.
   warnings: []
   missingSortingLayers: []
   missingLayers: []

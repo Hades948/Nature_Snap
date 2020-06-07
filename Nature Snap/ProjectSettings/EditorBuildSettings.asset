@@ -14,4 +14,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Credits.unity
     guid: d061e2c43283c5d4caa7be9da0b4870f
+  - enabled: 1
+    path: Assets/Scenes/Arctic.unity
+    guid: 057f68f86dc88bf4b90b42e9b328b557
+  - enabled: 1
+    path: Assets/Scenes/Gallery.unity
+    guid: deccb93ec03f8d947b9bf1c8d3afbcc5
+  - enabled: 1
+    path: Assets/Scenes/Settings.unity
+    guid: 1cd0220a8acbf7342a2215dbad56e746
   m_configObjects: {}

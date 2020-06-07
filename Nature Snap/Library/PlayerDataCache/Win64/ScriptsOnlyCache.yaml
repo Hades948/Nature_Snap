@@ -24,8 +24,6 @@ ScriptsOnlyBuild:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridPaintingState
-    - UnityEditor.Tilemaps.GridPaletteBrushes
-    - UnityEditor.Tilemaps.GridPalettes
     - UnityEditor.Tilemaps.SceneViewGridManager
     - UnityEditor.Tilemaps.TileDragAndDropManager
     Unity.Rider.Editor.dll:
@@ -33,10 +31,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -99,21 +95,21 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13048}
     - Class: 114
-      Script: {instanceID: 13350}
+      Script: {instanceID: 13352}
     - Class: 114
-      Script: {instanceID: 13612}
+      Script: {instanceID: 13616}
     - Class: 114
-      Script: {instanceID: 13872}
+      Script: {instanceID: 13876}
     - Class: 114
-      Script: {instanceID: 13906}
+      Script: {instanceID: 13910}
     - Class: 114
-      Script: {instanceID: 14406}
+      Script: {instanceID: 13926}
     - Class: 114
-      Script: {instanceID: 14436}
+      Script: {instanceID: 14414}
     - Class: 114
-      Script: {instanceID: 14548}
+      Script: {instanceID: 14442}
     - Class: 114
-      Script: {instanceID: 117146}
+      Script: {instanceID: 14554}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -174,15 +170,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13048}
     - Class: 114
-      Script: {instanceID: 13612}
+      Script: {instanceID: 13616}
     - Class: 114
-      Script: {instanceID: 13792}
+      Script: {instanceID: 13796}
     - Class: 114
-      Script: {instanceID: 13872}
+      Script: {instanceID: 13876}
     - Class: 114
-      Script: {instanceID: 14548}
+      Script: {instanceID: 13926}
     - Class: 114
-      Script: {instanceID: 117146}
+      Script: {instanceID: 14554}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -249,21 +245,21 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13048}
     - Class: 114
-      Script: {instanceID: 13350}
+      Script: {instanceID: 13352}
     - Class: 114
-      Script: {instanceID: 13612}
+      Script: {instanceID: 13616}
     - Class: 114
-      Script: {instanceID: 13872}
+      Script: {instanceID: 13876}
     - Class: 114
-      Script: {instanceID: 13906}
+      Script: {instanceID: 13910}
     - Class: 114
-      Script: {instanceID: 14406}
+      Script: {instanceID: 13926}
     - Class: 114
-      Script: {instanceID: 14436}
+      Script: {instanceID: 14414}
     - Class: 114
-      Script: {instanceID: 14548}
+      Script: {instanceID: 14442}
     - Class: 114
-      Script: {instanceID: 117146}
+      Script: {instanceID: 14554}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -324,15 +320,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13048}
     - Class: 114
-      Script: {instanceID: 13872}
+      Script: {instanceID: 13466}
     - Class: 114
-      Script: {instanceID: 14548}
+      Script: {instanceID: 13876}
     - Class: 114
-      Script: {instanceID: 56566}
+      Script: {instanceID: 13926}
     - Class: 114
-      Script: {instanceID: 82164}
+      Script: {instanceID: 14348}
     - Class: 114
-      Script: {instanceID: 117146}
+      Script: {instanceID: 14554}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -387,15 +383,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13048}
     - Class: 114
-      Script: {instanceID: 13612}
+      Script: {instanceID: 13164}
     - Class: 114
-      Script: {instanceID: 13872}
+      Script: {instanceID: 13616}
     - Class: 114
-      Script: {instanceID: 14548}
+      Script: {instanceID: 13876}
     - Class: 114
-      Script: {instanceID: 108622}
+      Script: {instanceID: 13926}
     - Class: 114
-      Script: {instanceID: 117146}
+      Script: {instanceID: 14554}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -452,17 +448,17 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13048}
     - Class: 114
-      Script: {instanceID: 13612}
+      Script: {instanceID: 13616}
     - Class: 114
-      Script: {instanceID: 13664}
+      Script: {instanceID: 13668}
     - Class: 114
-      Script: {instanceID: 13792}
+      Script: {instanceID: 13796}
     - Class: 114
-      Script: {instanceID: 13872}
+      Script: {instanceID: 13876}
     - Class: 114
-      Script: {instanceID: 14548}
+      Script: {instanceID: 13926}
     - Class: 114
-      Script: {instanceID: 117146}
+      Script: {instanceID: 14554}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -844,6 +840,12 @@ ScriptsOnlyBuild:
     className: RawImage
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ResetGameButtonController
+  - hash:
+      serializedVersion: 2
       Hash: 5ad4aa237d47ac2bab17bacb672edf7a
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -910,6 +912,12 @@ ScriptsOnlyBuild:
     className: Physics2DRaycaster
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GalleryLoader
+  - hash:
+      serializedVersion: 2
       Hash: c1933cc0a2f4ff6eb13333347497beb3
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -958,6 +966,12 @@ ScriptsOnlyBuild:
     className: Game
   - hash:
       serializedVersion: 2
+      Hash: 30f3213a6e218a461fa00e428f22d3eb
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: BlackFadeController
+  - hash:
+      serializedVersion: 2
       Hash: 88cc9df3c6fc697bfbeacd24c0d6f2d7
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools
@@ -980,6 +994,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_StyleSheet
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ReturnToGameButtonController
   - hash:
       serializedVersion: 2
       Hash: df434544c9f7b33d1cc7e635b180d279
@@ -1094,30 +1114,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: ReturnToGameButtonController
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: GalleryLoader
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: ResetGameButtonController
-  - hash:
-      serializedVersion: 2
-      Hash: 30f3213a6e218a461fa00e428f22d3eb
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: BlackFadeController
   platform: 19
   scenePathNames:
   - Assets/Scenes/Title.unity

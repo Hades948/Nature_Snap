@@ -3,7 +3,6 @@ using UnityEngine.SceneManagement;
 
 public class BlackFadeController : MonoBehaviour {
     public Animator animator;
-
     private string sceneName;
     
     public void fadeToScene(string sceneName) {
@@ -13,9 +12,5 @@ public class BlackFadeController : MonoBehaviour {
 
     public void onFadeComplete() {
         SceneManager.LoadSceneAsync(sceneName);
-    }
-
-    void Update() {
-        
     }
 }

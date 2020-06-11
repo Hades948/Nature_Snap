@@ -5,9 +5,11 @@ ScriptsOnlyBuild:
     - BlackFadeController
     - CameraController
     - CameraFlashController
+    - DirectionProperty
     - ExitGameButtonController
-    - GalleryLoader
+    - GallerySceneLoader
     - Game
+    - MapSceneLoader
     - MouseCursorController
     - OpenURLButtonController
     - PlayerController
@@ -24,6 +26,8 @@ ScriptsOnlyBuild:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridPaintingState
+    - UnityEditor.Tilemaps.GridPaletteBrushes
+    - UnityEditor.Tilemaps.GridPalettes
     - UnityEditor.Tilemaps.SceneViewGridManager
     - UnityEditor.Tilemaps.TileDragAndDropManager
     Unity.Rider.Editor.dll:
@@ -95,21 +99,23 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13048}
     - Class: 114
-      Script: {instanceID: 13352}
+      Script: {instanceID: 13354}
     - Class: 114
-      Script: {instanceID: 13616}
+      Script: {instanceID: 13618}
     - Class: 114
-      Script: {instanceID: 13876}
+      Script: {instanceID: 13758}
     - Class: 114
-      Script: {instanceID: 13910}
+      Script: {instanceID: 13880}
     - Class: 114
-      Script: {instanceID: 13926}
+      Script: {instanceID: 13914}
     - Class: 114
-      Script: {instanceID: 14414}
+      Script: {instanceID: 13930}
     - Class: 114
-      Script: {instanceID: 14442}
+      Script: {instanceID: 14418}
     - Class: 114
-      Script: {instanceID: 14554}
+      Script: {instanceID: 14446}
+    - Class: 114
+      Script: {instanceID: 14558}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -170,15 +176,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13048}
     - Class: 114
-      Script: {instanceID: 13616}
+      Script: {instanceID: 13618}
     - Class: 114
-      Script: {instanceID: 13796}
+      Script: {instanceID: 13800}
     - Class: 114
-      Script: {instanceID: 13876}
+      Script: {instanceID: 13880}
     - Class: 114
-      Script: {instanceID: 13926}
+      Script: {instanceID: 13930}
     - Class: 114
-      Script: {instanceID: 14554}
+      Script: {instanceID: 14558}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -245,21 +251,23 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13048}
     - Class: 114
-      Script: {instanceID: 13352}
+      Script: {instanceID: 13354}
     - Class: 114
-      Script: {instanceID: 13616}
+      Script: {instanceID: 13618}
     - Class: 114
-      Script: {instanceID: 13876}
+      Script: {instanceID: 13758}
     - Class: 114
-      Script: {instanceID: 13910}
+      Script: {instanceID: 13880}
     - Class: 114
-      Script: {instanceID: 13926}
+      Script: {instanceID: 13914}
     - Class: 114
-      Script: {instanceID: 14414}
+      Script: {instanceID: 13930}
     - Class: 114
-      Script: {instanceID: 14442}
+      Script: {instanceID: 14418}
     - Class: 114
-      Script: {instanceID: 14554}
+      Script: {instanceID: 14446}
+    - Class: 114
+      Script: {instanceID: 14558}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -320,15 +328,78 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13048}
     - Class: 114
-      Script: {instanceID: 13466}
+      Script: {instanceID: 13468}
     - Class: 114
-      Script: {instanceID: 13876}
+      Script: {instanceID: 13880}
     - Class: 114
-      Script: {instanceID: 13926}
+      Script: {instanceID: 13930}
     - Class: 114
-      Script: {instanceID: 14348}
+      Script: {instanceID: 14352}
     - Class: 114
-      Script: {instanceID: 14554}
+      Script: {instanceID: 14558}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 212
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    Assets/Scenes/Map.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 74
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 91
+      Script: {instanceID: 0}
+    - Class: 95
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 11180}
+    - Class: 114
+      Script: {instanceID: 11216}
+    - Class: 114
+      Script: {instanceID: 11494}
+    - Class: 114
+      Script: {instanceID: 11552}
+    - Class: 114
+      Script: {instanceID: 12286}
+    - Class: 114
+      Script: {instanceID: 13048}
+    - Class: 114
+      Script: {instanceID: 13340}
+    - Class: 114
+      Script: {instanceID: 13880}
+    - Class: 114
+      Script: {instanceID: 13930}
+    - Class: 114
+      Script: {instanceID: 14352}
+    - Class: 114
+      Script: {instanceID: 14558}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -385,13 +456,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13164}
     - Class: 114
-      Script: {instanceID: 13616}
+      Script: {instanceID: 13618}
     - Class: 114
-      Script: {instanceID: 13876}
+      Script: {instanceID: 13880}
     - Class: 114
-      Script: {instanceID: 13926}
+      Script: {instanceID: 13930}
     - Class: 114
-      Script: {instanceID: 14554}
+      Script: {instanceID: 14558}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -448,17 +519,17 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13048}
     - Class: 114
-      Script: {instanceID: 13616}
+      Script: {instanceID: 13618}
     - Class: 114
-      Script: {instanceID: 13668}
+      Script: {instanceID: 13670}
     - Class: 114
-      Script: {instanceID: 13796}
+      Script: {instanceID: 13800}
     - Class: 114
-      Script: {instanceID: 13876}
+      Script: {instanceID: 13880}
     - Class: 114
-      Script: {instanceID: 13926}
+      Script: {instanceID: 13930}
     - Class: 114
-      Script: {instanceID: 14554}
+      Script: {instanceID: 14558}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -852,6 +923,12 @@ ScriptsOnlyBuild:
     className: VerticalLayoutGroup
   - hash:
       serializedVersion: 2
+      Hash: 4caa8b2b59e396f3ea29c154f58e7b64
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MapSceneLoader
+  - hash:
+      serializedVersion: 2
       Hash: 71b711096c6c32621c1d4c02310898b7
     assemblyName: Unity.2D.Animation.Runtime.dll
     namespaceName: UnityEngine.U2D.Animation
@@ -915,7 +992,7 @@ ScriptsOnlyBuild:
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: GalleryLoader
+    className: GallerySceneLoader
   - hash:
       serializedVersion: 2
       Hash: c1933cc0a2f4ff6eb13333347497beb3
@@ -934,6 +1011,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ExitGameButtonController
+  - hash:
+      serializedVersion: 2
+      Hash: 9617c9ff8d2ca7af8db5e25d05ca9a8c
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DirectionProperty
   - hash:
       serializedVersion: 2
       Hash: 3b760e6526e13f7504f59e210145899a
@@ -1122,5 +1205,6 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Arctic.unity
   - Assets/Scenes/Gallery.unity
   - Assets/Scenes/Settings.unity
-  playerPath: C:/Users/Tyler/Documents/code_n_stuff/Unity/nature_snap/Nature Snap/Builds/beta2/Nature
+  - Assets/Scenes/Map.unity
+  playerPath: C:/Users/Tyler/Documents/code_n_stuff/Unity/nature_snap/Nature Snap/Builds/beta2.1/Nature
     Snap.exe

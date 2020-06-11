@@ -41,18 +41,13 @@ public class MouseCursorController : MonoBehaviour {
         float y = Camera.main.ScreenToWorldPoint(Input.mousePosition).y;
         transform.position = new Vector3(x + offsetX, y + offsetY, 0.0f);
 
-        if (SceneManager.GetActiveScene().name == "Title") {
+        string sceneName = SceneManager.GetActiveScene().name; 
+        if (sceneName == "Title" || sceneName == "Gallery") {
             transform.localScale = new Vector3(16.0f, 16.0f, 1.0f);
             transform.position = new Vector3(x + offsetX + 1.2f, y + offsetY- 1.2f, 0.0f);
-        } else if (SceneManager.GetActiveScene().name == "Credits") {
+        } else if (sceneName == "Credits" || sceneName == "Settings" || sceneName == "Map") {
             transform.localScale = new Vector3(3.8f, 3.8f, 1.0f);
             transform.position = new Vector3(x + offsetX + 0.23f, y + offsetY - 0.23f, 0.0f);
-        } else if (SceneManager.GetActiveScene().name == "Settings") {
-            transform.localScale = new Vector3(3.8f, 3.8f, 1.0f);
-            transform.position = new Vector3(x + offsetX + 0.23f, y + offsetY - 0.23f, 0.0f);
-        } else if (SceneManager.GetActiveScene().name == "Gallery") {
-            transform.localScale = new Vector3(16.0f, 16.0f, 1.0f);
-            transform.position = new Vector3(x + offsetX + 1.2f, y + offsetY- 1.2f, 0.0f);
         } else {
             transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
             transform.position = new Vector3(x + offsetX, y + offsetY, 0.0f);

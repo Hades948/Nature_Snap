@@ -10,13 +10,13 @@ using System.Collections.Generic;
 public class Game : MonoBehaviour {
     public static Tilemap path;
     public static TileBase[] pathTiles;
-    public static string previousScene = "ENTRY";
+    public static string previousScene = "Title";
     public Sprite ForestMinimapSource, ArcticMinimapSource;
-
-    public static int playerTileXFromSaveData = -1;
-    public static int playerTileYFromSaveData = -1;
+    public static Vector2Int playerTilePositionFromSaveData = new Vector2Int(-1, -1);
     public static string areaNameFromSaveData = "Forest";
     public static List<string> photosTaken = new List<string>();
+    public static string[] forestAnimalRegistry = new string[] { "Bear", "Deer", "Moose", "Squirrel", "Wolf", "Woodpecker" };
+    public static string[] arcticAnimalRegistry = new string[] { "Arctic Fox", "Arctic Hare", "Penguin", "Polar Bear", "Snowy Owl" };
 
     public static void switchScenes(string sceneName) {
         previousScene = SceneManager.GetActiveScene().name;
@@ -52,13 +52,11 @@ public class Game : MonoBehaviour {
             SaveData data = (SaveData)bf.Deserialize(file);
             file.Close();
 
-            playerTileXFromSaveData = data.playerTileX;
-            playerTileYFromSaveData = data.playerTileY;
+            playerTilePositionFromSaveData = new Vector2Int(data.playerTileX, data.playerTileY);
             areaNameFromSaveData = data.areaName;
             photosTaken = data.photosTaken;
         } else {
-            playerTileXFromSaveData = -1;
-            playerTileYFromSaveData = -1;
+            playerTilePositionFromSaveData = new Vector2Int(-1, -1);
             areaNameFromSaveData = "Forest";
         }
     }
@@ -73,14 +71,6 @@ public class Game : MonoBehaviour {
         if (path) {
             BoundsInt bounds = path.cellBounds;
             pathTiles = path.GetTilesBlock(bounds);
-        }
-
-        // Set proper minimap.
-        Image minimap = GameObject.Find("Minimap").GetComponent<Image>();
-        if (SceneManager.GetActiveScene().name == "Forest") {
-            minimap.sprite = ForestMinimapSource;
-        } else if (SceneManager.GetActiveScene().name == "Arctic") {
-            minimap.sprite = ArcticMinimapSource;
         }
     }
 }

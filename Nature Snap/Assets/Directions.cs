@@ -1,6 +1,3 @@
-public class Directions {
-    public const int EAST  = 0;
-    public const int NORTH = 1;
-    public const int WEST  = 2;
-    public const int SOUTH = 3;
+public enum Direction {
+    EAST = 0, NORTH = 1, WEST = 2, SOUTH = 3
 }

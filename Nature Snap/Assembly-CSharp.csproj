@@ -57,13 +57,13 @@
      <Compile Include="Assets\Scripts\Button Controllers\StartGameButtonController.cs" />
      <Compile Include="Assets\Scripts\Button Controllers\SwitchSceneButtonController.cs" />
      <Compile Include="Assets\Scripts\CameraController.cs" />
-     <Compile Include="Assets\Scripts\CameraFlashController.cs" />
      <Compile Include="Assets\Scripts\GallerySceneLoader.cs" />
      <Compile Include="Assets\Scripts\Game.cs" />
      <Compile Include="Assets\Scripts\MapSceneLoader.cs" />
      <Compile Include="Assets\Scripts\MouseCursorController.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Properties Scripts\DirectionProperty.cs" />
+     <Compile Include="Assets\Scripts\TextBoxController.cs" />
      <Compile Include="Assets\Util.cs" />
  <Reference Include="UnityEngine">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.9f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>

@@ -17,6 +17,8 @@ public class CameraController : MonoBehaviour {
     private float height;
     private Tilemap terrain;
     private Vector3 targetPosition;
+    // Flash stuff
+    public Animator flashAnimator;
     private long timeOfTargetChange;
     private State state = State.INACTIVE;
     private enum State {INACTIVE, PRE_FLASH, FLASH, POST_FLASH}
@@ -51,23 +53,19 @@ public class CameraController : MonoBehaviour {
             transform.position = targetPosition;
         }
 
-        // Flash animation.  TODO: Use an animator for this instead.
+        // Flash animation
         long now = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
         long elapsed = now - timeOfTargetChange;
         if (state != State.INACTIVE) {
-            if (state == State.PRE_FLASH && elapsed > 1000) {
-                GameObject.Find("Camera Flash").GetComponent<CameraFlashController>().doFlash();
-
-                state = State.FLASH;
-            } else if (state == State.FLASH && elapsed > 2000) {
+            if (state == State.FLASH && elapsed > 2000) {
                 followTarget = GameObject.Find("player");
-                ui.SetActive(true);
-                mousePointer.SetActive(true);
 
                 state = State.POST_FLASH;
             } else  if (state == State.POST_FLASH && elapsed > 3000) {
-                playerController.MovementLocked = false;
                 doLerp = false;
+                ui.SetActive(true);
+                mousePointer.SetActive(true);
+                playerController.MovementLocked = false;
 
                 state = State.INACTIVE;
             }
@@ -82,7 +80,8 @@ public class CameraController : MonoBehaviour {
         ui.SetActive(false);
         mousePointer.SetActive(false);
         playerController.MovementLocked = true;
-        state = State.PRE_FLASH;
+        state = State.FLASH;
+        flashAnimator.SetTrigger("Do Flash");
 
         followTarget = GameObject.Find(name);
         timeOfTargetChange = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();

@@ -6,7 +6,7 @@ public class BlackFadeController : MonoBehaviour {
     private string sceneName;
     
     public void fadeToScene(string sceneName) {
-        animator.SetTrigger("FadeOut");
+        animator.SetTrigger("Fade Out");
         this.sceneName = sceneName;
     }
 

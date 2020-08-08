@@ -38,6 +38,8 @@ public class PlayerController : MonoBehaviour {
                     spawn = Util.absoluteToTile(GameObject.Find("Initial Spawn").transform.position);
                 } else if (currentScene == "Arctic") { // For debug purposes only.
                     spawn = Util.absoluteToTile(GameObject.Find("Forest Spawn").transform.position);
+                } else if (currentScene == "Farm") { // For debug purposes only.
+                    spawn = Util.absoluteToTile(GameObject.Find("Forest Spawn").transform.position);
                 }
             } else { // Load from save data
                 spawn = Game.playerTilePositionFromSaveData;
@@ -67,7 +69,7 @@ public class PlayerController : MonoBehaviour {
 
     void FixedUpdate() {
         // Don't move if movement is locked.
-        if (MovementLocked)  {
+        if (MovementLocked) {
             animator.SetBool("isWalking", false);
             return;
         }

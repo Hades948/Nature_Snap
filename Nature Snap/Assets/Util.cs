@@ -2,6 +2,10 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using static System.Math;
 
+/**
+* A class that contains various utility functions for the game which are used by multiple scripts.
+* TODO: Cleanup.  There is probably a better way to accomplish this for Unity.
+*/
 public class Util {
     // Returns a Vector3 representing the absolute-world-space location of the given tile relative to the given path.
     public static Vector3 tileToAbsolute(Vector2Int tile) {

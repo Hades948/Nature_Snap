@@ -3,11 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/**
+* A MonoBehavior script that controls the game's text box.
+* Note: This has not really been implemented aside from some testing stuff.
+*/
 public class TextBoxController : MonoBehaviour {
     private Text text;
     private const float SPEED = 10.0f;
     private State state = State.STATIONARY;
     private enum State { STATIONARY, SLIDE_IN, SLIDE_OUT };
+
+    // TODO: Probably shouldn't be hardcoding these values.  Or at least should be using a const variable.
     private Vector3 slideInPosition = new Vector3(0.0f, 60.0f, 0.0f);
     private Vector3 slideOutPosition = new Vector3(0.0f, -60.0f, 0.0f);
 

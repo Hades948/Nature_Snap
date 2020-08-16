@@ -7,6 +7,10 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using System.Collections.Generic;
 
+/**
+* A MonoBehavior script that acts as a game controller.
+* TODO: Cleanup.  This could all probably be cleaned up at least a bit.
+*/
 public class Game : MonoBehaviour {
     public static Tilemap path;
     public static TileBase[] pathTiles;
@@ -18,11 +22,17 @@ public class Game : MonoBehaviour {
     public static string[] forestAnimalRegistry = new string[] { "Bear", "Deer", "Moose", "Squirrel", "Wolf", "Woodpecker" };
     public static string[] arcticAnimalRegistry = new string[] { "Arctic Fox", "Arctic Hare", "Penguin", "Polar Bear", "Snowy Owl" };
 
+    /**
+    * Switch to any scene by name.
+    */
     public static void switchScenes(string sceneName) {
         previousScene = SceneManager.GetActiveScene().name;
         GameObject.Find("Black Fade").GetComponent<BlackFadeController>().fadeToScene(sceneName);
     }
 
+    /**
+    * Save all of the current save data to the save file.
+    */
     public static void saveGame() {
         SaveData data = new SaveData();
         data.playerTileX = PlayerController.targetTile.x;
@@ -36,6 +46,9 @@ public class Game : MonoBehaviour {
         file.Close();
     }
 
+    /**
+    * Reset all of the game's save data.
+    */
     public static void resetGameData() {
         SaveData data = new SaveData();
 
@@ -45,6 +58,9 @@ public class Game : MonoBehaviour {
         file.Close();
     }
 
+    /**
+    * Load all of the game's save data from the save file.
+    */
     public static void loadGame() {
         if (File.Exists(Application.persistentDataPath + "/save.dat")) {
             BinaryFormatter bf = new BinaryFormatter();
@@ -61,6 +77,9 @@ public class Game : MonoBehaviour {
         }
     }
 
+    /**
+    * Autosave game when the it's closed.
+    */
     void OnApplicationQuit() {
         saveGame();
     }

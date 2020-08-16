@@ -6,6 +6,9 @@ using UnityEngine.UI;
 using UnityEngine.Tilemaps;
 using UnityEngine.SceneManagement;
 
+/**
+* A MonoBehavior script that controls the player.
+*/
 public class PlayerController : MonoBehaviour {
     public static Direction direction;
 

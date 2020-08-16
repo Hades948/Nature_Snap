@@ -4,11 +4,22 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+/**
+* A MonoBehavior script that loads the map scene based on which area the player is in.
+*/
 public class MapSceneLoader : MonoBehaviour {
+    /**
+    * Stores a map of the forest area.
+    */
     public Sprite forestMap;
+    
+    /**
+    * Stores a map of the arctic area.
+    */
     public Sprite arcticMap;
 
     void Start() {
+        // Get handle on required GameObjects.
         GameObject map = GameObject.Find("Map");
         GameObject name = GameObject.Find("Name");
         GameObject playerBlip = GameObject.Find("Player Blip");
